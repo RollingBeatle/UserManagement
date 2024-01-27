@@ -18,3 +18,18 @@ body {
   color: rgb(var(--foreground-rgb));
   padding: 1rem;
 }
+
+ul {
+  display: flex;
+  justify-content: space-around;
+}
+
+.link {
+  list-style: none;
+  text-decoration: none;
+  margin: 10px;
+}
+
+h1 {
+  text-align: center;
+}

@@ -2,7 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import ProductCard from './components/ProductCard'
 
-export default function Home() {
+const Home = () => {
   return (
     <main>
       Hello world
@@ -13,3 +13,4 @@ export default function Home() {
     
   )
 }
+export default Home
