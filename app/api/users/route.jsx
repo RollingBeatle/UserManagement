@@ -9,13 +9,13 @@ export function GET(){
 }
 
 export async function POST(req, resp){
-    let {id, name, age, email, pass} = await req.json()
-
-    if (!id || !name || !age || !email || !pass){
+    let {id, name, age, email, password} = await req.json()
+    console.log("Creating user")
+    if (!id || !name || !age || !email || !password){
         return NextResponse.json({result: "field missing"}, {status: 400});
     }
     else {
-        users.push({id, name, age, email, pass})
+        users.push({id, name, age, email, password})
 
         const updatedArray = users;
         const updatedData = JSON.stringify(updatedArray, null, 2)
@@ -27,7 +27,7 @@ export async function POST(req, resp){
 }
 
 export async function PUT(req, res){
-    let {id, name, age, email, pass} = await req.json()
+    let {id, name, age, email, password} = await req.json()
     const userId = users.findIndex((user) => user.id == id)
     
     if (userId === -1){ 
@@ -44,7 +44,7 @@ export async function PUT(req, res){
         users[userId].email = email
     }
     if(pass){
-        users[userId].pass = pass
+        users[userId].password = password
     }
 
     const updatedArray = users;

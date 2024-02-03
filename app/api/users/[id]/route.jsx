@@ -11,13 +11,13 @@ export async function GET(_, response){
 }
 
 export async function POST(req, res){
-    let {name, email, pass} = await req.json()
+    let {name, email, password} = await req.json()
     const {id} = await res.params
 
-    const {name: uName, email: uemail, pass: uPass
+    const {name: uName, email: uemail, password: uPassword
     } = users.find((u) => u.id == id);
 
-    if( uName === name && uemail ==email && pass === uPass ){
+    if( uName === name && uemail ==email && password === uPassword ){
         return NextResponse.json({result: "successful login"});
     }
     else if (!name || !email || !pass){
