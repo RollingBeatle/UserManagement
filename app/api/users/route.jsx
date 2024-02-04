@@ -20,7 +20,7 @@ export async function POST(req, resp){
         const updatedArray = users;
         const updatedData = JSON.stringify(updatedArray, null, 2)
 
-        fs.writeFileSync("../../util/db.js", `export const users = ${updatedData};`, 'utf-8');
+        fs.writeFileSync("app/util/db.js", `export const users = ${updatedData};`, 'utf-8');
 
         return NextResponse.json({success: "registered succesfully"}, {status: 200})
     }
@@ -43,14 +43,14 @@ export async function PUT(req, res){
     if(email){
         users[userId].email = email
     }
-    if(pass){
+    if(password){
         users[userId].password = password
     }
 
     const updatedArray = users;
     const updatedData = JSON.stringify(updatedArray, null, 2)
 
-    fs.writeFileSync("../../util/db.js", `export const users = ${updatedData};`, 'utf-8');
+    fs.writeFileSync("app/util/db.js", `export const users = ${updatedData};`, 'utf-8');
 
     return NextResponse.json({success: "updated succesfully"}, {status: 200})
 
